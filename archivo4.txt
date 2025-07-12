@@ -1,0 +1,5 @@
+define command {
+    command_name    check_clustat
+    command_line    /usr/lib/nagios/plugins/check_clustat.sh
+}
+

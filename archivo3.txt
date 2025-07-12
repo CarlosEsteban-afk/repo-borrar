@@ -1,0 +1,47 @@
+######################################
+# Servicios comunes por nodo
+######################################
+
+define service {
+    use                     local-service
+    host_name               nodo1
+    service_description     HTTP en nodo1
+    check_command           check_http
+}
+
+define service {
+    use                     local-service
+    host_name               nodo2
+    service_description     HTTP en nodo2
+    check_command           check_http
+}
+
+define service {
+    use                     local-service
+    host_name               nodo1
+    service_description     Puerto PostgreSQL 5432
+}
+
+define service {
+    use                     local-service
+    host_name               nodo2
+    service_description     Puerto MySQL 3306
+}
+
+######################################
+# Chequeo de clúster activo con pcs
+######################################
+
+define service {
+    use                     local-service
+    host_name               nodo1
+    service_description     Estado del clúster (pcs)
+    check_command           check_clustat
+}
+
+define service {
+    use                     local-service
+    host_name               nodo2
+    service_description     Estado del clúster (pcs)
+    check_command           check_clustat
+}
